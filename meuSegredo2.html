@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Meu Segredo 2</title>
+</head>
+<body>
+	<input/>
+	<button>Compare com o meu segredo</button>
+	
+	<script>
+
+		function sorteia() {
+			return Math.round(Math.random()*10);
+		}
+
+		function sorteiaNumeros(quantidade) {
+			var segredos = [];
+			var numero = 1;
+			while(numero <= quantidade) {
+
+				var numeroAletorio = sorteia();
+
+				if(numeroAletorio !== 0) {
+					var achou = false;
+
+				for(var posicao = 0; posicao < segredos.length; posicao++) {
+					if(segredos[posicao] == numeroAletorio) {
+						achou = true;
+						break
+					}
+				}
+								
+				if(achou == false) {
+					segredos.push(numeroAletorio());
+					numero++;
+				}
+								
+			}
+			
+		}
+		return segredos
+	}
+		
+		var segredos = sorteiaNumeros(3);
+		
+
+		var input = document.querySelector("input");
+		input.focus();
+
+		function verifica() {
+			var achou = false;
+			for(var posicao = 0; posicao < segredos.length; posicao++) {
+				if(input.value == segredos[posicao]) {
+					alert("Você acertou!");
+					achou = true;
+					break
+				}
+								
+			}
+
+			if(ahou == false){
+				alert("Você errou!")
+			}
+
+			alert("Você errou!")
+			
+			input.value = "";
+			input.focus();
+		}
+
+		var button = document.querySelector("button");
+		button.onclick = verifica;
+		
+		
+	</script>
+	
+
+	
+</body>
+</html>
+
